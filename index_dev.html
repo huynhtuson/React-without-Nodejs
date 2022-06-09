@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="root"></div>
+    
+
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+<script src="https://unpkg.com/history@5.2.0/umd/history.production.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-router/6.3.0/react-router.development.js" 
+integrity="sha512-Nex3lgc7b78S7hBDv5tLHSstDA9xvx0ezrLU/XeVcYpFOTqv+siyKop9sTbYU/9L23cITliJLHJwW57WnI1vbQ==" 
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-router-dom/6.3.0/react-router-dom.development.js" 
+integrity="sha512-IDZI9FEwnFQh2PmbbpvC4+pIEMeMwnlsh5y4a56hkK+jv8jDnXsjjcRTaZBSj+iqY0+Kc00FdVoFmn0+jeNIzw==" 
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+<script> window.exports  = window; </script>
+
+<script defer type="text/babel" data-type="module">
+
+const {createBrowserHistory } = history
+const {  Router, Routes, browserHistory, hashHistory, Navigate, useHref, Outlet, MemoryRouter, resolvePath  } = ReactRouter
+const { Route, BrowserRouter, Navbar, Link, HashRouter, NavLink  } = ReactRouterDOM
+
+const Layout = () => {
+  return (
+    <div>
+      <nav>
+        <ul>
+          <li>  <Link to="/">Home</Link>                </li> {/* //comment? */}
+          <li>  <Link to="/blogs">Blogs</Link>          </li>
+          <li>  <Link to="/contact">Contact</Link>      </li>
+          <li>  <Link to="/missing">Thieu declare Route</Link>      </li> 
+          <li>  <Link to="/testimport.html">testimpport</Link>      </li> 
+        </ul>
+      </nav>
+      <Outlet />
+    </div>
+  )
+};
+const Home = () => {  return <h1>Home</h1>; };
+const Blogs = () => {   return <h1>Blog Articles</h1>; };
+const Contact = () => {   return <h1>this Contact</h1>; };
+
+// console.log(ReactRouter, ReactRouterDOM);
+// console.log(  <Link />  );
+
+//history={browserHistory}  <Navbar />    
+export default function App() {
+  return (
+    <div>
+        <BrowserRouter history={createBrowserHistory}>
+                 
+            <Routes >
+                <Route path="/" element={<Layout />}>
+                    <Route index element={<Home />} />
+                    <Route path="blogs" element={<Blogs />} />
+                    <Route path="contract" element={<Blogs />} />
+                </Route>
+            </Routes>
+            <div> this is a div </div>        
+        </BrowserRouter>
+        <HashRouter>
+            <Link to="blogs" > this is Link</Link>
+        </HashRouter>
+        
+       
+
+
+    </div>
+  );
+}
+//          <Link to="/Blogs">Contact</Link>
+
+
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+
+</script>
+
+
+</body>
+</html>

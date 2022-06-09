@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><title>DEMO React with JSX</title>
+</head>
+<body>
+<div id="root"></div>
+<script src='https://unpkg.com/babel-standalone@6/babel.min.js'></script> 
+<script src="require.js"></script>
+<script type="module">
+    import {Testing} from './module.js'
+    // import {Linkset} from './linkset.jsx'
+</script>
+<script> window.exports  = window; </script>
+
+<script type="text/babel" data-type="module" src="linkset.jsx"></script>
+
+<script type="text/babel" data-type="module" >    
+    const root = ReactDOM.createRoot(document.getElementById('root'));    
+    
+    const { createBrowserHistory } = history
+    const { Router, Routes, browserHistory, hashHistory, Navigate, useHref, Outlet, MemoryRouter, resolvePath } = ReactRouter
+    const { Route, BrowserRouter, Navbar, Link, HashRouter, NavLink  } = ReactRouterDOM
+
+    // import {Linkset} from 'linkset.jsx'
+
+    root.render(
+    <div>        
+        <Linkset /> 
+    </div>
+    );
+</script>
+
+
+    
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo React WithOut Jxs</title>  
+</head>
+<body>
+
+<div id="root"></div> <div id="root2"></div>
+
+<div id="root_babel"></div>
+
+<script src='https://unpkg.com/babel-standalone@6/babel.min.js'></script> 
+<script type="module">
+    import {Reacta, Testing} from './module.js'
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    const root2 = ReactDOM.createRoot(document.getElementById('root2'));
+
+    // Display a "Like" <button>
+    React.Component.state = { liked: false };
+    let setState = (status)=>{ React.Component.state = status }
+    
+    root.render(React.createElement(
+        'button',
+        { onClick: () => setState({ liked: true }) },
+        'Like'
+    ));
+    
+
+    root2.render("This render Aaother ");
+
+</script>
+    
+</body>
+</html>
