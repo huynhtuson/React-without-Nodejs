@@ -1,4 +1,6 @@
+<!-- docs/_sidebar.md -->
 
+* [Guide](guide.md)
 * [HOME](./)
 
 * [Tutorials](./tutorials/index)
