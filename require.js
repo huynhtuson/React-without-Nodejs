@@ -8,3 +8,8 @@ var require = function(src, success, failure){
     }(src, success, failure);
 }
 
+// Buffer.TYPED_ARRAY_SUPPORT = global.TYPED_ARRAY_SUPPORT !== undefined
+//   ? global.TYPED_ARRAY_SUPPORT
+//   : "DEFAULT";
+
+window.require = require;
